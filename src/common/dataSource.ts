@@ -1,6 +1,5 @@
 import { ConfigService } from "@nestjs/config";
 import { DataSource } from "typeorm";
-import buildConfig from './config'
 import * as fs from 'fs'
 import * as yaml from 'yaml'
 
