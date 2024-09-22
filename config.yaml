@@ -1,0 +1,8 @@
+app:
+  port: 8000
+database:
+  host: localhost
+  port: 15432
+  username: postgres
+  password: postgres
+  db: finance_manager
