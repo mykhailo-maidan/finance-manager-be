@@ -1,11 +1,26 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { UserRepository } from './interfaces/repository.interface';
+import { USER_REPOSITORY } from '../../common/providers';
+import { User } from '../../domain/user.domain';
 
 @Injectable()
 export class UsersService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+
+  constructor(
+    @Inject(USER_REPOSITORY) private readonly userRepository: UserRepository
+  ){}
+
+  async create(createUserDto: CreateUserDto) {
+    try {
+      const user = new User(createUserDto.name, createUserDto.surname, createUserDto.email);
+      await this.userRepository.createUser(user);
+    } catch(error){
+      if (error.code === '23505'){
+        throw new BadRequestException('User already exists;')
+      }
+    }
   }
 
   findAll() {

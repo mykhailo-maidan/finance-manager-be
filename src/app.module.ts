@@ -3,9 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './modules/users/users.module';
-import { User  as UserEntity } from  './modules/users/entities/user.entity'
+import {  UserEntity } from  './modules/users/entities/user.entity'
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { buildConfig }  from './common/config';
+import { PortfolioEntity } from './modules/assets/portfolio/entities/portfolio.entity';
+import { AssetsModule } from './modules/assets/assets.module';
 
 @Module({
   imports: [
@@ -23,12 +25,15 @@ import { buildConfig }  from './common/config';
         username: configService.get('database.username'),
         password: configService.get('database.password'),
         database: configService.get('database.db'),
-        entities: [UserEntity],
+        entities: [UserEntity, PortfolioEntity],
         synchronize: true
       }),
       inject: [ConfigService]
     }),
-    UsersModule],
+    UsersModule,
+    AssetsModule
+    
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
