@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "58406ca9-8779-4c5c-8c2a-ef7645f8c52b",
+		"name": "Finance Manager",
+		"description": "API for Finance Manager Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "24236093-58406ca9-8779-4c5c-8c2a-ef7645f8c52b"
+	},
+	"item": [
+		{
+			"name": "/",
+			"item": [
+				{
+					"name": "App Controller get Hello",
+					"id": "bd1c474e-b118-492d-ab97-7730b5870e28",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "566356b5-8cfb-41fe-8093-a524050ccd6c",
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "351235a8-c090-407c-b97a-383cc2a0c764"
+		},
+		{
+			"name": "casdoor",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "Users Controller create User",
+							"id": "2c12db05-b641-4cf0-877b-acd185a2de4e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/casdoor/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"casdoor",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "a022fb03-a7ae-4e3b-8d22-f6a64604aba2",
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/casdoor/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"casdoor",
+												"users"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"id": "73e72309-7e52-4381-9ad0-e68df0649f8b"
+				},
+				{
+					"name": "Users Controller create",
+					"id": "b7e5c1bb-a5fd-4696-9c02-2c83eb371965",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/casdoor",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"casdoor"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "a4728e8a-2d35-4732-9aec-788dcc84719c",
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/casdoor",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"casdoor"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "2d1cc797-a9b6-47f7-9d14-c20de520ce8e"
+		},
+		{
+			"name": "portfolios",
+			"item": [
+				{
+					"name": "Portfolio Controller create",
+					"id": "c739a5fa-72b7-442c-86ae-bf1e24299c3b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/portfolios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"portfolios"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "ae1469c9-24f3-437f-9875-b8c718ade25e",
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/portfolios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portfolios"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "fe17fd5e-3b88-4beb-b871-3f6439c67fa7"
+		}
+	],
+	"variable": [
+		{
+			"id": "1a7bdd47-dcf8-46d4-b710-be480c5e0e11",
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
