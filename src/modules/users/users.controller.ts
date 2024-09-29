@@ -8,11 +8,6 @@ import { Request } from 'express';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
-  async create(@Body() createUserDto: CreateUserDto) {
-     return this.usersService.create(createUserDto);
-  }
-
   @Post('/users')
   async createUser(@Req() req: Request){
     let user  = req.body.extendedUser;

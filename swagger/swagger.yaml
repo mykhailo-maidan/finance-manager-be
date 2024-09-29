@@ -7,19 +7,6 @@ paths:
       responses:
         "200":
           description: ""
-  /casdoor:
-    post:
-      operationId: UsersController_create
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/CreateUserDto"
-      responses:
-        "201":
-          description: ""
   /casdoor/users:
     post:
       operationId: UsersController_createUser
@@ -73,9 +60,6 @@ components:
       bearerFormat: JWT
       type: http
   schemas:
-    CreateUserDto:
-      type: object
-      properties: {}
     CreatePortfolioDto:
       type: object
       properties: {}
