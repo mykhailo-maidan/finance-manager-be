@@ -12,7 +12,7 @@ export class Database{
   }
 
   get db(): string {
-    return this.configService.get<string>('dabatase.db','postgres');
+    return this.configService.get<string>('database.db','postgres');
   }
 
   get username(): string {

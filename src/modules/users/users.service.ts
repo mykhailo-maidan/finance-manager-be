@@ -14,7 +14,7 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto) {
     try {
-      const user = new User(createUserDto.name, createUserDto.surname, createUserDto.email);
+      const user = new User(createUserDto.name, createUserDto.email);
       await this.userRepository.createUser(user);
     } catch(error){
       if (error.code === '23505'){

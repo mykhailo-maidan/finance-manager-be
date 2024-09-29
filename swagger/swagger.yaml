@@ -7,7 +7,7 @@ paths:
       responses:
         "200":
           description: ""
-  /users:
+  /casdoor:
     post:
       operationId: UsersController_create
       parameters: []
@@ -20,51 +20,12 @@ paths:
       responses:
         "201":
           description: ""
-    get:
-      operationId: UsersController_findAll
+  /casdoor/users:
+    post:
+      operationId: UsersController_createUser
       parameters: []
       responses:
-        "200":
-          description: ""
-  /users/{id}:
-    get:
-      operationId: UsersController_findOne
-      parameters:
-        - name: id
-          required: true
-          in: path
-          schema:
-            type: string
-      responses:
-        "200":
-          description: ""
-    patch:
-      operationId: UsersController_update
-      parameters:
-        - name: id
-          required: true
-          in: path
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/UpdateUserDto"
-      responses:
-        "200":
-          description: ""
-    delete:
-      operationId: UsersController_remove
-      parameters:
-        - name: id
-          required: true
-          in: path
-          schema:
-            type: string
-      responses:
-        "200":
+        "201":
           description: ""
   /portfolios:
     post:
@@ -113,9 +74,6 @@ components:
       type: http
   schemas:
     CreateUserDto:
-      type: object
-      properties: {}
-    UpdateUserDto:
       type: object
       properties: {}
     CreatePortfolioDto:

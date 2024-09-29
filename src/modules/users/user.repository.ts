@@ -14,7 +14,7 @@ export class UserRepositoryImpl implements UserRepository{
 
   public async createUser(user: User): Promise<User> {
     const user_record = this.repository.create(user);
-    return this.repository.save(user);
+    return this.repository.save(user_record);
   }
 
   public async isUserExist(email: string): Promise<boolean> {
