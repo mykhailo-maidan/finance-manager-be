@@ -1,0 +1,81 @@
+openapi: 3.0.0
+paths:
+  /:
+    get:
+      operationId: AppController_getHello
+      parameters: []
+      responses:
+        "200":
+          description: ""
+  /casdoor:
+    post:
+      operationId: UsersController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateUserDto"
+      responses:
+        "201":
+          description: ""
+  /casdoor/users:
+    post:
+      operationId: UsersController_createUser
+      parameters: []
+      responses:
+        "201":
+          description: ""
+  /portfolios:
+    post:
+      operationId: PortfolioController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePortfolioDto"
+      responses:
+        "201":
+          description: ""
+      tags:
+        - Portfolios
+      security:
+        - oauth2:
+            - openid
+            - profile
+            - email
+info:
+  title: Finance Manager
+  description: API for Finance Manager Project
+  version: "1.0"
+  contact: {}
+tags:
+  - name: User
+    description: ""
+servers: []
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: http://localhost:8000/login/oauth/authorize
+          tokenUrl: http://localhost:8000/api/login/oauth/access_token
+          scopes:
+            profile: Access to user profile
+            email: Access to email
+      name: oauth2
+    bearerAuth:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+  schemas:
+    CreateUserDto:
+      type: object
+      properties: {}
+    CreatePortfolioDto:
+      type: object
+      properties: {}
