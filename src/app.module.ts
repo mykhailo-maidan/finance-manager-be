@@ -9,6 +9,8 @@ import { PortfolioEntity } from './modules/assets/portfolio/entities/portfolio.e
 import { AssetsModule } from './modules/assets/assets.module';
 import { AppConfigModule } from './modules/app-config/appconfig.module';
 import { AppConfigService } from './modules/app-config/appconfig.service';
+import { JwtModule } from '@nestjs/jwt';
+import { Auth0Guard } from './common/guards/auth.guard';
 
 @Module({
   imports: [
@@ -16,7 +18,7 @@ import { AppConfigService } from './modules/app-config/appconfig.service';
       isGlobal: true,
       load: [
         () => buildConfig()
-      ]
+      ],
     }),
     TypeOrmModule.forRootAsync({
       imports: [AppConfigModule],
@@ -33,9 +35,10 @@ import { AppConfigService } from './modules/app-config/appconfig.service';
       inject: [AppConfigService]
     }),
     UsersModule,
+    AssetsModule
     
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AppConfigService],
 })
 export class AppModule {}

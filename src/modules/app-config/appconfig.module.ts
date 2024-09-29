@@ -14,6 +14,8 @@ export class AppConfigModule{
       module: AppConfigModule,
       imports: [
         ConfigModule.forRoot({
+          isGlobal: true,
+          load: options?.load,
           ...options
         })
       ],
