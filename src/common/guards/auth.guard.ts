@@ -4,12 +4,13 @@ import { Request } from "express";
 import * as jwksRsa from 'jwks-rsa';
 import * as jwt from 'jsonwebtoken';
 import { promisify } from 'util';
+import { UsersService } from "src/modules/users/users.service";
 
 @Injectable()
 export class Auth0Guard implements CanActivate{
   private jwksClient: any;
 
-  constructor(private configService: AppConfigService){
+  constructor(private configService: AppConfigService, private usersService: UsersService){
     this.jwksClient = jwksRsa({
       jwksUri: configService.oauth2.keysUrl, // Replace with your Auth0 domain
       cache: true, // Cache the keys
@@ -29,7 +30,7 @@ export class Auth0Guard implements CanActivate{
 
     try {
       const user = await this.verifyToken(token);
-      request['user'] = user; // Attach the decoded user to the request
+      request['user'] = await this.usersService.findByEmail(user.email); // Attach the decoded user to the request
       return true;
     } catch (error) {
       throw new UnauthorizedException('Invalid or expired token');

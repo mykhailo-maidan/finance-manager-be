@@ -27,6 +27,15 @@ export class UsersService {
     return `This action returns all users`;
   }
 
+  async findByEmail(email: string): Promise<User|undefined> {
+    try{
+      const user = await this.userRepository.findByEmail(email);
+      return user !== null ? user : undefined;
+    }catch(error){
+      return undefined;
+    }
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} user`;
   }

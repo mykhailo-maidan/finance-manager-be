@@ -7,10 +7,14 @@ import { PortfolioEntity } from "./entities/portfolio.entity";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppConfigModule } from "src/modules/app-config/appconfig.module";
 import { AppConfigService } from "src/modules/app-config/appconfig.service";
+import { UsersService } from "src/modules/users/users.service";
+import { UsersModule } from "src/modules/users/users.module";
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([PortfolioEntity])
+    TypeOrmModule.forFeature([PortfolioEntity]),
+    UsersModule,
+    AppConfigModule
   ],
   controllers: [PortfolioController],
   providers: [
@@ -19,7 +23,7 @@ import { AppConfigService } from "src/modules/app-config/appconfig.service";
       provide: PORTFOLIO_REPOSITORY,
       useClass: PortfolioRepositoryImpl 
     },
-    AppConfigService
+    
   ],
   exports: [PORTFOLIO_REPOSITORY, PortfolioService]
 })
